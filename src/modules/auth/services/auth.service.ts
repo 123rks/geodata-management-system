@@ -2,6 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { I18nService } from 'nestjs-i18n';
+import { Users } from '../../../entities/users.entity';
 import { LoginRequest, LoginResult } from '../interfaces/login.interface';
 import { UsersRepository } from '../repositories/users.repository';
 
@@ -50,5 +51,29 @@ export class AuthService {
         },
       }),
     };
+  }
+
+  async seedUser() {
+    const usersToCreate = [
+      {
+        username: 'admin',
+        password: 'admin',
+        name: 'Administrator',
+      },
+    ];
+    for (const userData of usersToCreate) {
+      const existingUser = await this.authUsersRepository.findByUsername(
+        userData.username,
+      );
+      if (!existingUser) {
+        const user = new Users();
+        user.username = userData.username;
+        user.name = userData.name;
+        user.active = true;
+        user.password_hash = await bcrypt.hash(userData.password, 10);
+        await this.authUsersRepository.insert(user);
+        console.log(`User ${user.name} created`);
+      }
+    }
   }
 }

@@ -8,6 +8,7 @@ import config from './common/config/config';
 import { DatabaseConfig } from './common/config/database.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
+import { AuthService } from './modules/auth/services/auth.service';
 
 @Module({
   imports: [
@@ -39,4 +40,13 @@ import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
     },
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private readonly authService: AuthService) {
+    this.seedData();
+  }
+
+  async seedData() {
+    await this.authService.seedUser();
+    console.log('Seeding complete!');
+  }
+}
