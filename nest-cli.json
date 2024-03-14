@@ -4,10 +4,11 @@
   "sourceRoot": "src",
   "root": "src",
   "compilerOptions": {
-    "deleteOutDir": true,
-    "watchAssets": true,
     "assets": [
-      "common/i18n/**/*"
+      { "include": "common/i18n/**/*",
+        "watchAssets": true,
+        "outDir": "dist/src/"
+      }
     ]
   }
 }
