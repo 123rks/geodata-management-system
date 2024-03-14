@@ -1,0 +1,5 @@
+{
+  "success": "Upload success!",
+  "invalidFile": "Invalid GeoJSON file",
+  "fileRequired": "Please upload GeoJSON file"
+}

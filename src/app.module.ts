@@ -9,6 +9,7 @@ import { DatabaseConfig } from './common/config/database.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 import { AuthService } from './modules/auth/services/auth.service';
+import { UploadModule } from './modules/upload/upload.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { AuthService } from './modules/auth/services/auth.service';
       ),
     }),
     AuthModule,
+    UploadModule,
   ],
   controllers: [],
   providers: [

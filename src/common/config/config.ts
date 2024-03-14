@@ -14,6 +14,7 @@ export default () => ({
     timezone: 'Z',
     bigNumberStrings: false,
     supportBigNumbers: true,
+    legacySpatialSupport: false,
     replication: {
       master: {
         host: process.env.DB_HOST,
