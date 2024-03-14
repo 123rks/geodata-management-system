@@ -1,0 +1,13 @@
+{
+  "NOT_EMPTY": "Enter the {label}, because is required.",
+  "VALID_EMAIL": "Enter the {label} with correct email.",
+  "VALID_PHONE": "Enter the {label} with correct phone number format.",
+  "VALID_URL": "The {label} is not a URL.",
+  "VALID_DATE": "The {label} is not a Date.",
+  "IS_BOOLEAN": "The {label} is not a boolean.",
+  "IS_NUMBER": "The {label} is not a Number.",
+  "IS_UNIQUE": "{label} \"{value}\" already exists.",
+  "IS_ENUM": "{label} must be one of the {enums}",
+  "MIN": "The {label} must greater than {constraints.0}.",
+  "MAX": "The {label} must less than {constraints.0}."
+}
