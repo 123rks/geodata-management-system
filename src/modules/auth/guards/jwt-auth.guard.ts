@@ -38,13 +38,11 @@ export class JwtAuthGuard implements CanActivate {
     const [authType, authToken] = token.split(' ');
 
     if (authType == 'Bearer' && authToken) {
-      const user = jwt.verify(authToken, String(this.config.get('jwt_secret')));
-
-      if (!user) {
+      try {
+        jwt.verify(authToken, String(this.config.get('jwt_secret')));
+      } catch (e) {
         throw new UnauthorizedException();
       }
-
-      request.user = user;
       return true;
     }
     return false;
