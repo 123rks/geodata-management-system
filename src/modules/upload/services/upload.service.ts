@@ -63,7 +63,7 @@ export class UploadService {
     });
   }
 
-  private deleteFile(filePath: string) {
+  deleteFile(filePath: string) {
     fs.unlink(filePath, (err) => {
       if (err) {
         console.error(err);
