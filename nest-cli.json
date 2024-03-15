@@ -5,9 +5,19 @@
   "root": "src",
   "compilerOptions": {
     "assets": [
-      { "include": "common/i18n/**/*",
+      {
+        "include": "common/i18n/**/*",
         "watchAssets": true,
         "outDir": "dist/src/"
+      }
+    ],
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "classValidatorShim": false,
+          "introspectComments": true
+        }
       }
     ]
   }
