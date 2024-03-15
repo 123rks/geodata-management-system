@@ -28,3 +28,7 @@ $ npm run start:dev
 ```bash
 $ npm run test
 ```
+
+## API Documentation
+
+Check the API documentation at http://localhost:3000/api
